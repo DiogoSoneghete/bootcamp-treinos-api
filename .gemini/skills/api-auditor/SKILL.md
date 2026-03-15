@@ -56,3 +56,9 @@ Swagger UI disponível em `/docs` quando o servidor está rodando (porta 3000).
 
 - **SEMPRE** use Context7 para buscar documentações
 - **SEMPRE** use Serena para semantic code retrieval e editing tools.
+
+## Regras de Automação
+
+- **MANUTENÇÃO DE DOCUMENTAÇÃO DUPLA:** A cada interação, atualize obrigatoriamente:
+  - **`README.md` (Raiz):** Visão geral, stack básica e exemplos rápidos para o GitHub. Foco em usuários/contribuidores externos.
+  - **`obsidian/ProjectDescption.md`:** Documentação técnica detalhada para o desenvolvedor. Deve conter detalhes minuciosos sobre arquitetura, fluxos de autenticação, mudanças no schema do banco, lógica de novos use cases e especificações de versões das bibliotecas.

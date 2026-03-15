@@ -41,6 +41,7 @@ Esta API resolve o problema de organização e acompanhamento de rotinas de exer
 - [x] Criação de planos de treino (Workout Plans)
 - [x] Gestão de dias de treino e exercícios
 - [x] Controle de plano ativo por usuário
+- [x] Início de sessões de treino (Workout Sessions)
 - [x] Documentação interativa via Scalar (/docs)
 
 ## Exemplos de Uso
@@ -69,6 +70,15 @@ Esta API resolve o problema de organização e acompanhamento de rotinas de exer
       ]
     }
   ]
+}
+```
+
+### Iniciar Sessão de Treino
+**POST** `/workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions`
+```json
+// Response (201)
+{
+  "userWorkoutSessionId": "uuid_da_sessao"
 }
 ```
 

@@ -25,5 +25,10 @@
       "timeout": 120000,
       "trust": false
     }
+  },
+  "general": {
+    "sessionRetention": {
+      "enabled": false
+    }
   }
 }
