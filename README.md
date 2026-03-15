@@ -42,43 +42,32 @@ Esta API resolve o problema de organização e acompanhamento de rotinas de exer
 - [x] Gestão de dias de treino e exercícios
 - [x] Controle de plano ativo por usuário
 - [x] Início de sessões de treino (Workout Sessions)
+- [x] Finalização de sessões de treino
 - [x] Documentação interativa via Scalar (/docs)
 
 ## Exemplos de Uso
-
-### Criar Plano de Treino
-**POST** `/workout-plans`
-```json
-{
-  "name": "Treino Hipertrofia A/B",
-  "userId": "user_id_aqui",
-  "workoutDays": [
-    {
-      "name": "Treino A - Peito e Tríceps",
-      "weekday": "MONDAY",
-      "isRest": false,
-      "estimatedDurationInSeconds": 3600,
-      "coverImageUrl": "https://exemplo.com/imagem.png",
-      "exercises": [
-        {
-          "order": 1,
-          "name": "Supino Reto",
-          "sets": 4,
-          "reps": 12,
-          "restTimeSeconds": 60
-        }
-      ]
-    }
-  ]
-}
-```
-
+...
 ### Iniciar Sessão de Treino
 **POST** `/workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions`
 ```json
 // Response (201)
 {
   "userWorkoutSessionId": "uuid_da_sessao"
+}
+```
+
+### Finalizar Sessão de Treino
+**PATCH** `/workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions/{sessionId}`
+```json
+{
+  "completedAt": "2026-03-15T15:30:00.000Z"
+}
+
+// Response (200)
+{
+  "id": "uuid_da_sessao",
+  "completedAt": "2026-03-15T15:30:00.000Z",
+  "startedAt": "2026-03-15T14:30:00.000Z"
 }
 ```
 
