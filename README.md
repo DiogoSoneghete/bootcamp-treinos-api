@@ -43,11 +43,41 @@ Esta API resolve o problema de organização e acompanhamento de rotinas de exer
 - [x] Controle de plano ativo por usuário
 - [x] Início de sessões de treino (Workout Sessions)
 - [x] Finalização de sessões de treino
+- [x] Geração de dados da Home (Streak, Consistência, Treino do dia)
 - [x] Documentação interativa via Scalar (/docs)
 
 ## Exemplos de Uso
 ...
-### Iniciar Sessão de Treino
+### Buscar Dados da Home
+**GET** `/home/2026-03-15`
+```json
+// Response (200)
+{
+  "activeWorkoutPlanId": "uuid_do_plano",
+  "todayWorkoutDay": {
+    "workoutPlanId": "uuid_do_plano",
+    "id": "uuid_do_dia",
+    "name": "Treino A",
+    "isRest": false,
+    "weekDay": "MONDAY",
+    "estimatedDurationInSeconds": 3600,
+    "exercisesCount": 5
+  },
+  "workoutStreak": 3,
+  "consistencyByDay": {
+    "2026-03-15": {
+      "workoutDayCompleted": true,
+      "workoutDayStarted": true
+    },
+    "2026-03-16": {
+      "workoutDayCompleted": false,
+      "workoutDayStarted": false
+    }
+  }
+}
+```
+
+### Criar Plano de Treino
 **POST** `/workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions`
 ```json
 // Response (201)
