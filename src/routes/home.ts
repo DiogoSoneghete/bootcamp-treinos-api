@@ -27,7 +27,7 @@ export const homeRoutes = async (app: FastifyInstance) => {
             id: z.string().uuid(),
             name: z.string(),
             isRest: z.boolean(),
-            weekDay: z.nativeEnum(Weekday),
+            weekDay: z.enum(Object.values(Weekday) as [string, ...string[]]),
             estimatedDurationInSeconds: z.number(),
             coverImageUrl: z.string().optional(),
             exercisesCount: z.number(),
