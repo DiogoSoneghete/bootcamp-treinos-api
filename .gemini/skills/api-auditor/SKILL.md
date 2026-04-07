@@ -57,6 +57,10 @@ Swagger UI disponível em `/docs` quando o servidor está rodando (porta 3000).
 - **SEMPRE** use Context7 para buscar documentações
 - **SEMPRE** use Serena para semantic code retrieval e editing tools.
 
+## Regras de Conduta
+
+- **PROIBIÇÃO DE COMMITS AUTOMÁTICOS:** **NUNCA** execute `git add`, `git commit` ou `git push` sem a permissão explícita do usuário para a tarefa atual. Sempre proponha o que será commitado e aguarde o "ok" final.
+
 ## Regras de Automação
 
 - **MANUTENÇÃO DE DOCUMENTAÇÃO DUPLA:** A cada interação, atualize obrigatoriamente:

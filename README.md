@@ -39,6 +39,8 @@ Esta API resolve o problema de organização e acompanhamento de rotinas de exer
 ## Funcionalidades
 - [x] Autenticação completa com better-auth
 - [x] Criação de planos de treino (Workout Plans)
+- [x] Busca detalhada de plano de treino
+- [x] Busca detalhada de dia de treino (Exercícios e Sessões)
 - [x] Gestão de dias de treino e exercícios
 - [x] Controle de plano ativo por usuário
 - [x] Início de sessões de treino (Workout Sessions)
@@ -48,6 +50,57 @@ Esta API resolve o problema de organização e acompanhamento de rotinas de exer
 
 ## Exemplos de Uso
 ...
+### Buscar Dia de Treino
+**GET** `/workout-plans/{workoutPlanId}/days/{workoutDayId}`
+```json
+// Response (200)
+{
+  "id": "uuid_do_dia",
+  "name": "Treino A - Peito",
+  "isRest": false,
+  "weekDay": "MONDAY",
+  "estimatedDurationInSeconds": 3600,
+  "exercises": [
+    {
+      "id": "uuid_do_exercicio",
+      "name": "Supino",
+      "order": 1,
+      "sets": 4,
+      "reps": 12,
+      "restTimeSeconds": 60
+    }
+  ],
+  "sessions": [
+    {
+      "id": "uuid_da_sessao",
+      "workoutDayId": "uuid_do_dia",
+      "startedAt": "2026-03-15T14:30:00.000Z",
+      "completedAt": "2026-03-15T15:30:00.000Z"
+    }
+  ]
+}
+```
+
+### Buscar Plano de Treino
+**GET** `/workout-plans/{workoutPlanId}`
+```json
+// Response (200)
+{
+  "id": "uuid_do_plano",
+  "name": "Treino Hipertrofia A/B",
+  "workoutDays": [
+    {
+      "id": "uuid_do_dia",
+      "weekDay": "MONDAY",
+      "name": "Treino A - Peito e Tríceps",
+      "isRest": false,
+      "estimatedDurationInSeconds": 3600,
+      "exercisesCount": 5
+    }
+  ]
+}
+```
+
 ### Buscar Dados da Home
 **GET** `/home/2026-03-15`
 ```json
