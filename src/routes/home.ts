@@ -31,7 +31,7 @@ export const homeRoutes = async (app: FastifyInstance) => {
             estimatedDurationInSeconds: z.number(),
             coverImageUrl: z.string().optional(),
             exercisesCount: z.number(),
-          }).nullable(),
+          }),
           workoutStreak: z.number(),
           consistencyByDay: z.record(z.string(), z.object({
             workoutDayCompleted: z.boolean(),
